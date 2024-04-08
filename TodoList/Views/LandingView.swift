@@ -24,7 +24,13 @@ struct LandingView: View {
             
             VStack {
                 
-                
+                List {
+                    
+                    Text("Study for Chemistry quiz")
+                    Text("Finish Computer Science assignment")
+                    Text("Go for a run around campus")
+
+                }
                 
             }
             .navigationTitle("To do")
