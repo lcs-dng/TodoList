@@ -38,9 +38,11 @@ struct LandingView: View {
                     TextField("Enter a to-do item", text: $newItemDescription)
                     
                     Button("ADD") {
-                            // Add the new to-do item
+                        // Add the new to-do item
+                        createToDo(withTitle: newItemDescription)
                     }
                     .font(.caption)
+                    .disabled(newItemDescription.isEmpty == true)
                 }
                 .padding(20)
                 
@@ -49,6 +51,21 @@ struct LandingView: View {
         }
         
     }
+    
+    // MARK: Functions
+    func createToDo(withTitle title: String) {
+        
+        // Create the new to-do item instance
+        let todo = TodoItem(
+            title: title,
+            done: false
+        )
+        
+        // Append to the array
+        todos.append(todo)
+        
+    }
+    
 }
 
 #Preview {
