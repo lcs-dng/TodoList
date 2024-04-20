@@ -45,8 +45,11 @@ struct LandingView: View {
                     TextField("Enter a to-do item", text: $newItemDescription)
                     
                     Button("ADD") {
+ 
                         // Add the new to-do item
                         createToDo(withTitle: newItemDescription)
+                        
+                        newItemDescription = ""
                     }
                     .font(.caption)
                     .disabled(newItemDescription.isEmpty == true)
@@ -91,6 +94,7 @@ struct LandingView: View {
     
 }
 
-// #Preview {
-//     LandingView()
-// }
+ #Preview {
+     LandingView()
+         .modelContainer(TodoItem.preview)
+ }
